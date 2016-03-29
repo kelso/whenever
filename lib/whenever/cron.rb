@@ -39,7 +39,7 @@ module Whenever
       end
 
       def output
-        [time_in_cron_syntax, task].compact.join(' ').strip
+        [time_in_cron_syntax, cron_user, task].compact.join(' ').strip
       end
 
       def time_in_cron_syntax
@@ -49,6 +49,10 @@ module Whenever
           when String then parse_as_string
           else parse_time
         end
+      end
+      
+      def cron_user
+        'ubuntu'
       end
 
     protected
